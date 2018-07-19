@@ -16,7 +16,7 @@ namespace CaesarCipher
                 {
                     modindex = (character <= 90) ? character - 65 : character - 97;
                     retriveIndex = (character <= 90) ? 65 : 97;
-                    result += (char)((modindex + shiftKey) % 26 + retriveIndex);
+                    result += (char) ((modindex + shiftKey) % 26 + retriveIndex);
                 }
                 else
                     result += character;
