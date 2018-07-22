@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Text;
 
 namespace CaesarCipher
 {
@@ -7,21 +8,19 @@ namespace CaesarCipher
     {
         public static string Rotate(string text, int shiftKey)
         {
-            string result = "";
-            int modindex;
-            int retriveIndex;
+            StringBuilder result = new StringBuilder();
             foreach (char character in text)
             {
                 if ((character >= 65 && character <= 90) || (character >= 97 && character <= 122))
                 {
-                    modindex = (character <= 90) ? character - 65 : character - 97;
-                    retriveIndex = (character <= 90) ? 65 : 97;
-                    result += (char) ((modindex + shiftKey) % 26 + retriveIndex);
+                    int modindex = (character <= 90) ? character - 65 : character - 97;
+                    int retriveIndex = (character <= 90) ? 65 : 97;
+                    result.Append((char) ((modindex + shiftKey) % 26 + retriveIndex));
                 }
                 else
-                    result += character;
+                    result.Append(character);
             }
-            return result;
+            return result.ToString();
         }
     }
 }
